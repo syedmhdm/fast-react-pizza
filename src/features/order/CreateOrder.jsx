@@ -1,7 +1,7 @@
 import { Form, redirect, useActionData, useNavigation } from 'react-router-dom';
 import { createOrder } from '../../services/apiRestaurant';
 import Button from '../../ui/Button';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { clearCart, getCart, getTotalCartPrice } from '../cart/cartSlice';
 import EmptyCart from '../cart/EmptyCart';
 import store from '../../store';
@@ -19,7 +19,7 @@ function CreateOrder() {
   const isSubmitting = navigation.state === 'submitting';
   const formErrors = useActionData();
   const username = useSelector((store) => store.user.username);
-
+  const dispatch = useDispatch();
   const cart = useSelector(getCart);
   const totalCartPirce = useSelector(getTotalCartPrice);
   const priorityPrice = withPriority ? totalCartPirce + 0.2 : 0;
