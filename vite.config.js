@@ -5,4 +5,7 @@ import eslint from 'vite-plugin-eslint';
 export default defineConfig({
   base: '/fast-react-pizza',
   plugins: [react()],
+  build: {
+    target: 'ES2022',
+  },
 });
