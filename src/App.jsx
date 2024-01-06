@@ -16,6 +16,7 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
+        index: true,
         path: '/fast-react-pizza',
         element: <Home />,
       },
